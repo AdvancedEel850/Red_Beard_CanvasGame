@@ -142,12 +142,10 @@ function animate(){
 }
 
 var popup = document.querySelector("#startPopup")
-var endgame = document.querySelector("#endPopup")
 var startGameButton = document.querySelector("#startGame")
 
 startGameButton.addEventListener('click', (event => {
     popup.style.display = 'none'
-    endgame.style.display = 'none'
     __init__()
     animate()
 }))
