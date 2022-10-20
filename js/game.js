@@ -69,7 +69,7 @@ const player = new Player({
 })
 var coins = [];
 function __init__(){
-    for(let i = 0; i < generateRandom(10,100); i++){
+    for(let i = 0; i < generateRandom(25,100); i++){
     coins[i] = new Coin({position: {
         x: generateRandom(350, canvas.width - 50),
         y: generateRandom(200, 400)
