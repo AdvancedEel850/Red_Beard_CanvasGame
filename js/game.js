@@ -5,9 +5,6 @@ canvas.width = innerWidth - 30;
 canvas.height = innerHeight - 30;
 canvas.style.position = 'center';
 
-var coinEnd = []
-var paly = true
-
 
 const parsedCollisions = collisionsLevel1.parse2D()
 
@@ -71,18 +68,22 @@ const player = new Player({
     }
 })
 var coins = [];
-for(let i = 0; i < generateRandom(10,50); i++){
-coinEnd[i] = false
-coins[i] = new Coin({position: {
-    x: generateRandom(350, canvas.width - 50),
-    y: generateRandom(175, 400)
-},
-imageSrc: './img/coinRotates.png',
-frameRate: 9,
+function __init__(){
+    for(let i = 0; i < generateRandom(10,50); i++){
+    coins[i] = new Coin({position: {
+        x: generateRandom(350, canvas.width - 50),
+        y: generateRandom(200, 400)
+    },
+    imageSrc: './img/coinRotates.png',
+    frameRate: 9,
 
-}) 
+    }) 
+    }
+    player.velocity.x = 0
+    player.velocity.y = 0
+    player.position.x = 50
+    player.position.y = 50
 }
-
 const keys ={
     w:{
         pressed: false
@@ -95,7 +96,7 @@ const keys ={
     }
 }
 function animate(){
-    window.requestAnimationFrame(animate);
+    if(coins.length != 0)window.requestAnimationFrame(animate);
     ctx.fillStyle = 'Black'
     ctx.fillRect(0,0,canvas.width, canvas.height)
 
@@ -134,8 +135,8 @@ function animate(){
         }
     }
     if(coins.length == 0){
-        endgame.style.display = 'flex'
-        play = flase
+        popup.style.display = 'flex'
+        
     }
 
 }
@@ -147,6 +148,7 @@ var startGameButton = document.querySelector("#startGame")
 startGameButton.addEventListener('click', (event => {
     popup.style.display = 'none'
     endgame.style.display = 'none'
+    __init__()
     animate()
 }))
 
