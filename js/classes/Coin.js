@@ -18,6 +18,7 @@ class Coin extends Sprite{
         if(this.fall){
             this.coinFall()
         }
+
     }
 
     checkForPlayerCollision(){

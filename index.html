@@ -5,10 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    
+    <script src="https://cdn.tailwindcss.com"></script>
     <title>Red Beard</title>
 </head>
 <body>
+    <div class = 'fixed inset-0 flex items-center justify-center' id = 'endPopup'>
+        <div class = ' max-w-sm w-full p-6'>
+            <h1 class = 'bg-white text-black w-full py-3 rounded-full text-center text-size-25'><b>Congrats :D</b></h1>
+        </div>
+    </div>
+    <div class = 'fixed inset-0 flex items-center justify-center' id = 'startPopup'>
+        <div class = ' max-w-md w-full p-6'>
+            <div>
+                <button id = 'startGame' class = 'bg-blue-500 text-white w-full py-3 rounded-full'>Start Game</button>
+            </div>
+        </div>
+    </div>
     <canvas id="canvas"></canvas>
 </body>
 <script src = "js/utils.js"></script>

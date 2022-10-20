@@ -5,6 +5,8 @@ canvas.width = innerWidth - 30;
 canvas.height = innerHeight - 30;
 canvas.style.position = 'center';
 
+var coinEnd = []
+var paly = true
 
 
 const parsedCollisions = collisionsLevel1.parse2D()
@@ -70,6 +72,7 @@ const player = new Player({
 })
 var coins = [];
 for(let i = 0; i < generateRandom(10,50); i++){
+coinEnd[i] = false
 coins[i] = new Coin({position: {
     x: generateRandom(350, canvas.width - 50),
     y: generateRandom(175, 400)
@@ -126,7 +129,24 @@ function animate(){
     for(let i = 0; i < coins.length; i++){
         coins[i].draw()
         coins[i].updateCoin()
+        if(coins[i].position.y >= 20000){
+            coins.splice(i, 1)
+        }
     }
+    if(coins.length == 0){
+        endgame.style.display = 'flex'
+        play = flase
+    }
+
 }
-animate()
+
+var popup = document.querySelector("#startPopup")
+var endgame = document.querySelector("#endPopup")
+var startGameButton = document.querySelector("#startGame")
+
+startGameButton.addEventListener('click', (event => {
+    popup.style.display = 'none'
+    endgame.style.display = 'none'
+    animate()
+}))
 
