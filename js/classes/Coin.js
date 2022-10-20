@@ -35,7 +35,7 @@ class Coin extends Sprite{
 
     coinFall(){
         
-        console.log('go2')
+        
         this.velocity.y += this.gravity
         this.position.y += this.velocity.y   
         if(this.velocity.y >= 2.25) {
