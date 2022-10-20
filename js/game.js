@@ -68,15 +68,17 @@ const player = new Player({
         }
     }
 })
-
-const coin = new Coin({position: {
-    x: canvas.width/2,
-    y: canvas.height/2
+var coins = [];
+for(let i = 0; i < generateRandom(10,50); i++){
+coins[i] = new Coin({position: {
+    x: generateRandom(350, canvas.width - 50),
+    y: generateRandom(175, 400)
 },
 imageSrc: './img/coinRotates.png',
 frameRate: 9,
 
 }) 
+}
 
 const keys ={
     w:{
@@ -121,8 +123,10 @@ function animate(){
     
     player.draw()
     player.update()
-    coin.draw()
-    coin.updateCoin()
+    for(let i = 0; i < coins.length; i++){
+        coins[i].draw()
+        coins[i].updateCoin()
+    }
 }
 animate()
 

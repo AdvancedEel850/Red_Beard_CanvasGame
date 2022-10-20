@@ -1,5 +1,5 @@
 class Coin extends Sprite{
-    constructor({position, imageSrc, frameRate, animations}){
+    constructor({position, imageSrc, frameRate, animations, newname}){
         super({imageSrc, frameRate, animations})
         this.position = position
         this.gravity = 0.05
