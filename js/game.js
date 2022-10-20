@@ -11,6 +11,22 @@ const parsedCollisions = collisionsLevel1.parse2D()
 
 const collisionBlocks = parsedCollisions.createObjectsFrom2D()
 
+function generateRandom(min = 0, max = 100) {
+
+    // find diff
+    let difference = max - min;
+
+    // generate random number 
+    let rand = Math.random();
+
+    // multiply with difference 
+    rand = Math.floor( rand * difference);
+
+    // add with min value 
+    rand = rand + min;
+
+    return rand;
+}
 
 const background = new Sprite({
     position: {
@@ -53,12 +69,12 @@ const player = new Player({
     }
 })
 
-const coin = new Sprite({position: {
+const coin = new Coin({position: {
     x: canvas.width/2,
     y: canvas.height/2
 },
-imageSrc: './img/coinRotate.png',
-frameRate: 6,
+imageSrc: './img/coinRotates.png',
+frameRate: 9,
 
 }) 
 
@@ -99,13 +115,14 @@ function animate(){
     }
 
     background.draw()
-    // coin.draw()
     collisionBlocks.forEach(collisionBlock =>{
         collisionBlock.draw()
     })
-
+    
     player.draw()
     player.update()
+    coin.draw()
+    coin.updateCoin()
 }
 animate()
 
