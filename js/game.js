@@ -1,8 +1,8 @@
 const canvas = document.querySelector("#canvas");
 const ctx = canvas.getContext("2d");
 
-canvas.width = innerWidth - 30;
-canvas.height = innerHeight - 30;
+canvas.width = innerWidth -30;
+canvas.height = innerHeight - 10;
 canvas.style.position = 'center';
 
 
