@@ -34,6 +34,16 @@ addEventListener('keydown', (event) => {
             keys.d.pressed = true
 
             break
+        case 's':
+            if(player.velocity.y != 0){
+                player.velocity.y = 10
+            }
+            break
+        case 'ArrowDown':
+            if(player.velocity.y != 0){
+                player.velocity.y = 10
+            }
+            break
     }
 
 })
